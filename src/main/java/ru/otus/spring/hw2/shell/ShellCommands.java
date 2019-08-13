@@ -111,17 +111,17 @@ public class ShellCommands {
 
     @ShellMethod(value = "Book:UpdateName", key = {"bun"})
     public boolean bookUpdateName(@ShellOption int id, @ShellOption String name) {
-        return bookDao.updateName(new Book(id, name, 0, 0));
+        return bookDao.updateName(id, name);
     }
 
     @ShellMethod(value = "Book:UpdateAuthor", key = {"bua"})
     public boolean bookUpdateAuthor(@ShellOption int id, @ShellOption int authorId) {
-        return bookDao.updateAuthor(new Book(id, null, authorId, 0));
+        return bookDao.updateAuthor(id, authorId);
     }
 
     @ShellMethod(value = "Book:UpdateGenre", key = {"bug"})
     public boolean bookUpdateGenre(@ShellOption int id, @ShellOption int genreId) {
-        return bookDao.updateGenre(new Book(id, null, 0, genreId));
+        return bookDao.updateGenre(id, genreId);
     }
 
     @ShellMethod(value = "Book:Delete", key = {"bd"})

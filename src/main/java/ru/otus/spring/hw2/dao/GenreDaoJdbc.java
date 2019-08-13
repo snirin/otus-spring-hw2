@@ -44,7 +44,8 @@ public class GenreDaoJdbc implements GenreDao {
 
     @Override
     public boolean deleteById(int id) {
-        return namedJdbc.update("delete from genres where id = :id", ImmutableMap.of("id", id)) > 0;
+        return namedJdbc.update("delete from genres where id = :id",
+                ImmutableMap.of("id", id)) > 0;
     }
 
     @Override
@@ -54,7 +55,8 @@ public class GenreDaoJdbc implements GenreDao {
 
     @Override
     public Genre getById(int id) {
-        return namedJdbc.queryForObject("select * from genres where id = :id", singletonMap("id", id), new GenreMapper());
+        return namedJdbc.queryForObject("select * from genres where id = :id",
+                singletonMap("id", id), new GenreMapper());
     }
 
     @Override

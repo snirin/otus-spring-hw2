@@ -10,11 +10,11 @@ public interface BookDao {
 
     boolean update(Book book);
 
-    boolean updateName(Book book);
+    boolean updateName(int id, String name);
 
-    boolean updateAuthor(Book book);
+    boolean updateAuthor(int id, int authorId);
 
-    boolean updateGenre(Book book);
+    boolean updateGenre(int id, int genreId);
 
     boolean deleteById(int id);
 

@@ -1,5 +1,7 @@
 package ru.otus.spring.hw2.domain;
 
+import java.util.Objects;
+
 public class Book {
 
     private final int id;
@@ -38,5 +40,25 @@ public class Book {
                 ", authorId=" + authorId +
                 ", genreId=" + genreId +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Book book = (Book) o;
+        return id == book.id &&
+                authorId == book.authorId &&
+                genreId == book.genreId &&
+                name.equals(book.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, authorId, genreId);
     }
 }

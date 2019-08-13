@@ -50,21 +50,21 @@ public class BookDaoJdbc implements BookDao {
     }
 
     @Override
-    public boolean updateName(Book book) {
+    public boolean updateName(int id, String name) {
         return namedJdbc.update("update books set name = :name where id = :id",
-                ImmutableMap.of("id", book.getId(), "name", book.getName())) > 0;
+                ImmutableMap.of("id", id, "name", name)) > 0;
     }
 
     @Override
-    public boolean updateAuthor(Book book) {
+    public boolean updateAuthor(int id, int authorId) {
         return namedJdbc.update("update books set author_id = :authorId where id = :id",
-                ImmutableMap.of("id", book.getId(), "authorId", book.getAuthorId())) > 0;
+                ImmutableMap.of("id", id, "authorId", authorId)) > 0;
     }
 
     @Override
-    public boolean updateGenre(Book book) {
+    public boolean updateGenre(int id, int genreId) {
         return namedJdbc.update("update books set genre_id = :genreId where id = :id",
-                ImmutableMap.of("id", book.getId(), "genreId", book.getGenreId())) > 0;
+                ImmutableMap.of("id", id, "genreId", genreId)) > 0;
     }
 
     @Override
